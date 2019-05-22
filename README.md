@@ -9,11 +9,16 @@ Escrito em Python + Django e utilizando o Django Rest Framework para a implement
 
 ## Features
 
-* Listagem paginada de todos os calçados
-* Inserção de um novo calçado
-* Visualização de um único calçado específico
-* Edição completa/parcial de um calçado específico
-* Remoção de um calçado específico
+A aplicação retorna valores JSON a partir dos seguintes endpoints:
+
+Método HTTP | URL | Comportamento
+------------|-----|---------------
+`GET` | `api/resources/` | Retorna lista paginada de calçados
+`POST`| `api/resources/` | Adiciona um novo calçado
+`GET` | `api/resources/id` | Retorna um calçado existente
+'PUT' | `api/resources/id` | Altera as informações de um calçado existente
+'PATCH' | `api/resources/id` | Altera parcialmente as informações de um calçado existente
+'DELETE' | `api/resources/id` | Remove um calçado existente
 
 ## Depêndencias
 
@@ -46,6 +51,7 @@ HOST_DB= "ENDEREÇO"
 PORT_DB= "PORTA"
 ```
 Substitua os valores entre parenteses com as informações necessárias de um banco de dados PostgreSQL.
+
 8. Execute `./manage.py makemigrations` em seguida execute `./manage.py migrate`.
 9. Agora você ja está pronto para rodar a aplicação com o comando `./manage runserver`
 

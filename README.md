@@ -16,9 +16,9 @@ Método HTTP | URL | Comportamento
 `GET` | `api/resources/` | Retorna lista paginada de calçados
 `POST`| `api/resources/` | Adiciona um novo calçado
 `GET` | `api/resources/id` | Retorna um calçado existente
-'PUT' | `api/resources/id` | Altera as informações de um calçado existente
-'PATCH' | `api/resources/id` | Altera parcialmente as informações de um calçado existente
-'DELETE' | `api/resources/id` | Remove um calçado existente
+`PUT` | `api/resources/id` | Altera as informações de um calçado existente
+`PATCH` | `api/resources/id` | Altera parcialmente as informações de um calçado existente
+`DELETE` | `api/resources/id` | Remove um calçado existente
 
 ## Depêndencias
 

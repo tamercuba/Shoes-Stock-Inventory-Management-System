@@ -23,16 +23,17 @@ Método HTTP | URL | Comportamento
 ### Busca
 
 Para realizar a busca pelo endpoint `/resources/` você deve adicionar um parâmetro `?campo1=valor1&campo2=valor2...`, podendo buscar por um ou mais campos.
+
 Os campos disponíveis para busca são:
-`?descricao`: busca pela descrição exata do calçado.
-`?fornecedor`: busca pela descrição exata do fornecedor.
+* `?descricao`: busca pela descrição exata do calçado.
+* `?fornecedor`: busca pela descrição exata do fornecedor.
 > Os campos de busca tipo texto podem ser refinados usando o parâmetro `__ll` antes do `=`, esse parâmetro refina a busca para campos que contém o texto digitado.
 
-`?tipo`: Busca pela sigla do tipo de calçado.
-`?numeracao`: busca pela numeração digitada, podendo adicionar os parâmetros `lt`/`gt` para busca por 'menor/maior que' ou `lte`/`gte` para 'menor/maior ou igual a'.
-`?quantidade`: busca pela quantidade digitada, podendo adicionar os parâmetros de comparação descritos para numeração.
-`?preco_custo`: busca pelo preço de custo digitado.
-`?preco_venda`: busca pelo preço de venda digitado.
+* `?tipo`: Busca pela sigla do tipo de calçado.
+* `?numeracao`: busca pela numeração digitada, podendo adicionar os parâmetros `lt`/`gt` para busca por 'menor/maior que' ou `lte`/`gte` para 'menor/maior ou igual a'.
+* `?quantidade`: busca pela quantidade digitada, podendo adicionar os parâmetros de comparação descritos para numeração.
+* `?preco_custo`: busca pelo preço de custo digitado.
+* `?preco_venda`: busca pelo preço de venda digitado.
 > Os campos de busca tipo numéricos podem ser refinados usando os parametros `__lt`/`__gt` para 'menor/maior que' e também `__lte/__gte` para 'menor/maior ou igual a'.
 
 ## Depêndencias

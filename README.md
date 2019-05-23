@@ -36,7 +36,7 @@ Os campos disponíveis para busca são:
 * `?preco_venda`: busca pelo preço de venda digitado.
 > Os campos de busca tipo numéricos podem ser refinados usando os parametros `__lt`/`__gt` para 'menor/maior que' e também `__lte/__gte` para 'menor/maior ou igual a'.
 
-Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos calçados que tem quantidade em estoque maior ou igual a `500` e preço de venda menor que `R$150,00`.
+Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos calçados que tem quantidade em estoque menor ou igual a `500` e preço de venda maior que `R$150,00`.
 
 ## Depêndencias
 

@@ -1,9 +1,9 @@
 from django.db import models
 
-class Sapato(models.Model):
-    ''' MODELO SAPATO PARA ESTOQUE '''
+class Calcado(models.Model):
+    ''' MODELO CALÇADO PARA ESTOQUE '''
 
-    #    TIPOS DE SAPATOS
+    #    TIPOS DE CALÇADOS
     BOTA        = 'BT'
     CASUAL      = 'CS'
     CHINELO     = 'CH'
@@ -36,8 +36,13 @@ class Sapato(models.Model):
         )
     preco_venda = models.DecimalField(
         max_digits=6, decimal_places=2,
-        verbose_name='Preco de Custo', null=False, blank=False
+        verbose_name='Preco de Venda', null=False, blank=False
         )
 
     def __str__(self):
         return str(self.descricao) + '-' + str(self.numeracao)
+
+    class Meta:
+        verbose_name: 'Calçado'
+        verbose_name_plural: 'Calçados'
+        ordering = ['-quantidade', 'descricao']

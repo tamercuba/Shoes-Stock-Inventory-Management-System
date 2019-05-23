@@ -1,5 +1,5 @@
 from rest_framework import routers
-from api.viewsets import SapatoViewSet
+from api.viewsets import CalcadoViewSet
 
 router = routers.DefaultRouter()
-router.register(r'resources', SapatoViewSet)
+router.register(r'resources', CalcadoViewSet)

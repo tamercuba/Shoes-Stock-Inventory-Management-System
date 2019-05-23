@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Sapato
+from .models import Calcado
 
-class SapatoSerializer(serializers.ModelSerializer):
-    ''' SAPATO SERIALIZER '''
+class CalcadoSerializer(serializers.ModelSerializer):
+    ''' CALÇADO SERIALIZER '''
     class Meta:
-        model = Sapato
+        model = Calcado
         fields = '__all__'

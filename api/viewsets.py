@@ -1,9 +1,11 @@
 from rest_framework import viewsets
-from .models import Sapato
-from .serializers import SapatoSerializer
+from .models import Calcado
+from .serializers import CalcadoSerializer
+from .filters import CalcadoFilter
 
-class SapatoViewSet(viewsets.ModelViewSet):
-    ''' VIEWSET SAPATO '''
-    queryset = Sapato.objects.all()
-    serializer_class = SapatoSerializer
-    search_fields = '__all__'
+class CalcadoViewSet(viewsets.ModelViewSet):
+    ''' VIEWSET CALÇADO '''
+
+    queryset = Calcado.objects.all()
+    serializer_class = CalcadoSerializer
+    filter_class = CalcadoFilter

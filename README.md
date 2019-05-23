@@ -67,7 +67,7 @@ PW_DB= "SENHA"
 HOST_DB= "ENDEREÇO"
 PORT_DB= "PORTA"
 ```
-Substitua os valores entre parenteses com as informações necessárias de um banco de dados PostgreSQL.
+> Substitua os valores entre aspas com as informações necessárias de um banco de dados PostgreSQL.
 
 8. Execute `./manage.py makemigrations` em seguida execute `./manage.py migrate`.
 9. Agora você ja está pronto para rodar a aplicação com o comando `./manage runserver`

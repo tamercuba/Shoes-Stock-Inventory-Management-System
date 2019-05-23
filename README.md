@@ -13,12 +13,27 @@ A aplicação retorna valores JSON a partir dos seguintes endpoints:
 
 Método HTTP | URL | Comportamento
 ------------|-----|---------------
-`GET` | `api/resources/` | Retorna lista paginada de calçados
-`POST`| `api/resources/` | Adiciona um novo calçado
-`GET` | `api/resources/id` | Retorna um calçado existente
-`PUT` | `api/resources/id` | Altera as informações de um calçado existente
-`PATCH` | `api/resources/id` | Altera parcialmente as informações de um calçado existente
-`DELETE` | `api/resources/id` | Remove um calçado existente
+`GET` | `/resources/` | Retorna lista paginada de calçados permitindo busca
+`POST`| `/resources/` | Adiciona um novo calçado
+`GET` | `/resources/id` | Retorna um calçado existente
+`PUT` | `/resources/id` | Altera as informações de um calçado existente
+`PATCH` | `/resources/id` | Altera parcialmente as informações de um calçado existente
+`DELETE` | `/resources/id` | Remove um calçado existente
+
+### Busca
+
+Para realizar a busca pelo endpoint `/resources/` você deve adicionar um parâmetro `?campo1=valor1&campo2=valor2...`, podendo buscar por um ou mais campos.
+Os campos disponíveis para busca são:
+`?descricao`: busca pela descrição exata do calçado.
+`?fornecedor`: busca pela descrição exata do fornecedor.
+> Os campos de busca tipo texto podem ser refinados usando o parâmetro `__ll` antes do `=`, esse parâmetro refina a busca para campos que contém o texto digitado.
+
+`?tipo`: Busca pela sigla do tipo de calçado.
+`?numeracao`: busca pela numeração digitada, podendo adicionar os parâmetros `lt`/`gt` para busca por 'menor/maior que' ou `lte`/`gte` para 'menor/maior ou igual a'.
+`?quantidade`: busca pela quantidade digitada, podendo adicionar os parâmetros de comparação descritos para numeração.
+`?preco_custo`: busca pelo preço de custo digitado.
+`?preco_venda`: busca pelo preço de venda digitado.
+> Os campos de busca tipo numéricos podem ser refinados usando os parametros `__lt`/`__gt` para 'menor/maior que' e também `__lte/__gte` para 'menor/maior ou igual a'.
 
 ## Depêndencias
 
@@ -28,6 +43,7 @@ Django | 2.2.1
 djangorestframework | 3.9.4  
 pip | 19.1.1
 psycopg2 | 2.8.2  
+Python | 3.7.1
 python-decouple | 3.1    
 pytz | 2019.1
 setuptools | 41.0.1

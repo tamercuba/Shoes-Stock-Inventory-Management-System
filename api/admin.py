@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Calcado
+from .models import Calcado, Numeracao
 
 class CalcadoAdmin(admin.ModelAdmin):
     '''
@@ -9,8 +9,12 @@ class CalcadoAdmin(admin.ModelAdmin):
     o modelo calcado na interface de
     administrador nativa do Django.
     '''
-    list_display  = ['descricao', 'quantidade', 'numeracao', 'preco_custo', 'preco_venda']
+    list_display  = ['descricao', 'preco_custo', 'preco_venda']
     search_fields = list_display
-    ordering      = ['quantidade', 'descricao']
+    ordering      = ['descricao']
+
+class NumeracaoAdmin(admin.ModelAdmin):
+    list_display = ['_descricao', 'tamanho','quantidade' ,'_id']
 
 admin.site.register(Calcado, CalcadoAdmin)
+admin.site.register(Numeracao, NumeracaoAdmin)

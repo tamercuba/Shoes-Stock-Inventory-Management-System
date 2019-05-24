@@ -20,7 +20,7 @@ Método HTTP | URL | Comportamento
 `PATCH` | `/resources/id` | Altera parcialmente as informações de um calçado existente
 `DELETE` | `/resources/id` | Remove um calçado existente
 
-### Busca
+#### Busca
 
 Para realizar a busca pelo endpoint `/resources/` você deve adicionar um parâmetro `?campo1=valor1&campo2=valor2...`, podendo buscar por um ou mais campos.
 
@@ -69,7 +69,7 @@ PW_DB= "SENHA"
 HOST_DB= "ENDEREÇO"
 PORT_DB= "PORTA"
 ```
-> Substitua os valores entre aspas com as informações necessárias de um banco de dados PostgreSQL.
+> Substitua os valores entre aspas (sem as aspas) com as informações necessárias de um banco de dados PostgreSQL.
 
 8. Execute `./manage.py makemigrations` em seguida execute `./manage.py migrate`.
 9. Agora você ja está pronto para rodar a aplicação com o comando `./manage runserver`

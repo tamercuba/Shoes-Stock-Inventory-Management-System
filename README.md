@@ -5,6 +5,7 @@
 ## Descrição
 
 Escrito em Python + Django e utilizando o Django Rest Framework para a implementação da arquitetura REST, o SSIMS visa fornecer uma CRUD para gerenciar um sistema de estoque de calçados.
+Esta é a primeira versão protótipo do produto, o banco de dados não está normalizado e ainda não apresenta o endpoint de adição de unidades via arquivo csv nem frontend. 
 
 
 ## Features
@@ -59,7 +60,7 @@ wheel | 0.33.4
 2. Caso não tenha, instale o `VirtualEnv` utilizando `pip install virtualenv` (lembre-se que o projeto utiliza Python 3, se o seu Sistema Operacional utilizar o 2 como padrão talvez você tenha que usar `pip3`)
 3. Localize o diretório raiz do Python 3.7 na sua máquina executando `which python3.7`
 4. Agora execute `virtualenv --python=/path/to/your/python3.7 .venv` (lembre-se de substituir /path/to/your/python3.7 pelo caminho descoberto na etapa anterior, note que você pode substituir o nome `.venv` para o nome que desejar) e ative o ambiente virtual rodando `source .venv/bin/activate` (para desativá-lo basta substituir o `source` por `deactivate`).
-5. Execute agora `git clone https://github.com/tamercuba/Shoes-Stock-Inventory-Management-System.git` para clonar o repositório que ficará num diretório chamado `SSIMS` dentro do diretório raiz. Entre no diretório utilizando o comando `cd SSIMS`.
+5. Execute agora `git clone -b v0.1 https://github.com/tamercuba/Shoes-Stock-Inventory-Management-System.git` para clonar o repositório que ficará num diretório chamado `SSIMS` dentro do diretório raiz. Entre no diretório utilizando o comando `cd SSIMS`.
 6. Para baixar as depêndencias execute `pip install -r requirements.txt`.
 7. Execute `touch .env`, edite esse arquivo com seu editor e texto preferido colocando as seguintes informações:
 ```

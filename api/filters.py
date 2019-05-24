@@ -16,9 +16,9 @@ class CalcadoFilter(filters.FilterSet):
         fields = {
             'descricao':['exact', 'll'],
             'fornecedor': ['exact', 'll'],
-            'numeracao': ['exact', 'lt', 'lte', 'gt', 'gte'],
+            #'numeracao': ['exact', 'lt', 'lte', 'gt', 'gte'],
             'preco_custo': ['exact', 'lt', 'lte', 'gt', 'gte'],
             'preco_venda': ['exact', 'lt', 'lte', 'gt', 'gte'],
-            'quantidade': ['exact', 'lt', 'lte', 'gt', 'gte'],
+            #'quantidade': ['exact', 'lt', 'lte', 'gt', 'gte'],
             'tipo': ['exact'],
         }

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Calcado, Numeracao
+from .models import Calcado, Estoque
 
 class CalcadoAdmin(admin.ModelAdmin):
     '''
@@ -13,8 +13,8 @@ class CalcadoAdmin(admin.ModelAdmin):
     search_fields = list_display
     ordering      = ['descricao']
 
-class NumeracaoAdmin(admin.ModelAdmin):
+class EstoqueAdmin(admin.ModelAdmin):
     list_display = ['_descricao', 'tamanho','quantidade' ,'_id']
 
 admin.site.register(Calcado, CalcadoAdmin)
-admin.site.register(Numeracao, NumeracaoAdmin)
+admin.site.register(Estoque, EstoqueAdmin)

@@ -16,11 +16,11 @@ class CalcadoSerializer(serializers.ModelSerializer):
     para depois serem convertidos em formato JSON.
     '''
 
-    estoque = EstoqueSerializer(many=True)
+    estoque = EstoqueSerializer(many=True, read_only=True)
     #numeracao = NumeracaoSerializer(many=True, queryset=Numeracao.objects.all())
     #numeracao = serializers.ReadOnlyField()
     #numeracao = serializers.RelatedField(many=True, read_only=True)
 
     class Meta:
         model = Calcado
-        fields = ['_id','descricao', 'fornecedor', 'tipo', 'quantidade_total', 'estoque']
+        fields = ['_id','descricao', 'fornecedor', 'tipo', 'preco_custo','preco_venda','quantidade_total', 'estoque']

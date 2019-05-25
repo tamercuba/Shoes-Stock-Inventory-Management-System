@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Shoes Stock Inventory Management System</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th><b>Descrição</b></th>
+                                <th><b>Fornecedor</b></th>
+                                <th><b>Tipo</b></th>
+                                <th><b>Preço Custo</b></th>
+                                <th><b>Preço Venda</b></th>
+                                <th><b>{{35}}</b></th>
+                                <th><b>{{36}}</b></th>
+                                <th><b>{{37}}</b></th>
+                                <th><b>{{38}}</b></th>
+                                <th><b>{{39}}</b></th>
+                                <th><b>{{40}}</b></th>
+                                <th><b>{{41}}</b></th>
+                                <th><b>{{42}}</b></th>
+                                <th><b>{{43}}</b></th>
+                                <th><b>{{44}}</b></th>
+                                <th><b>{{45}}</b></th>
+                                <th><b>Total</b></th>
+                        </thead>
+                        <tbody>
+                            {% for calcado in calcados %}
+                            <tr>
+                                <td>{{ calcado.descricao }}</td>
+                                <td>{{ calcado.fornecedor }}</td>
+                                <td>{{ calcado.tipo }}</td>
+                                <td>R$ {{ calcado.custo}}</td>
+                                <td>R$ {{ calcado.venda }}</td>
+                                <td>{% if calcado.35 %}{{ calcado.35}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.36 %}{{ calcado.36}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.37 %}{{ calcado.37}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.38 %}{{ calcado.38}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.39 %}{{ calcado.39}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.40 %}{{ calcado.45}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.41 %}{{ calcado.41}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.42 %}{{ calcado.42}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.43 %}{{ calcado.43}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.44 %}{{ calcado.44}}{% else %}0{% endif %}</td>
+                                <td>{% if calcado.45 %}{{ calcado.45}}{% else %}0{% endif %}</td>
+                                <td>{{ calcado.total }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="paginatior pag-footer">
+                    <span class="step-links">
+                        {% if calcados.has_previous %}
+                            <a href="?page={{ calcados.previous_page_number }}">
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        {% else %}
+                            <i class="fas fa-arrow-left  pag-not-link"></i>
+                        {% endif %}
+                        <span class="current-page">
+                            {{ calcados.number }} de {{ calcados.paginator.num_pages }}
+                        </span>
+                        {% if calcados.has_next %}
+                            <a href="?page={{ calcados.next_page_number }}">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        {% else %}
+                            <i class="fas fa-arrow-right pag-not-link"></i>
+                        {% endif %}
+                    </span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

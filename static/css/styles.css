@@ -1,0 +1,9 @@
+.pag-footer{
+    position: fixed;
+    padding-top: 15px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}

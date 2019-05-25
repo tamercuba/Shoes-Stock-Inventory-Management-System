@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Calcado, Numeracao
+from .models import Calcado, Estoque
 
-class NumeracaoSerializer(serializers.ModelSerializer):
+class EstoqueSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Numeracao
+        model = Estoque
         fields = ['tamanho', 'quantidade']
 
 class CalcadoSerializer(serializers.ModelSerializer):
@@ -16,11 +16,11 @@ class CalcadoSerializer(serializers.ModelSerializer):
     para depois serem convertidos em formato JSON.
     '''
 
-    numeracao = NumeracaoSerializer(many=True)
+    estoque = EstoqueSerializer(many=True)
     #numeracao = NumeracaoSerializer(many=True, queryset=Numeracao.objects.all())
     #numeracao = serializers.ReadOnlyField()
     #numeracao = serializers.RelatedField(many=True, read_only=True)
 
     class Meta:
         model = Calcado
-        fields = ['_id','descricao', 'fornecedor', 'tipo', 'numeracao']
+        fields = ['_id','descricao', 'fornecedor', 'tipo', 'quantidade_total', 'estoque']

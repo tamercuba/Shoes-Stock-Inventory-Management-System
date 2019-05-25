@@ -37,12 +37,16 @@ class Calcado(models.Model):
     def __str__(self):
         return self.descricao
 
+    def quantidade_total(self):
+        total = Estoque.objects.filter(id_calcado=self._id).aggregate(models.Sum('quantidade'))
+        return total['quantidade__sum'] or 0
+
     class Meta:
         verbose_name: 'Calçado'
         verbose_name_plural: 'Calçados'
         ordering = ['descricao']
 
-class Numeracao(models.Model):
+class Estoque(models.Model):
     '''
     NUMERACAO E QUANTIDADE DISPONIVEL EM ESTOQUE
     '''
@@ -51,8 +55,8 @@ class Numeracao(models.Model):
 
     _id        = models.AutoField(primary_key=True)
     id_calcado = models.ForeignKey(
-            Calcado, on_delete = models.CASCADE, verbose_name = 'calcado', related_name = 'numeracao')
-    tamanho    = models.IntegerField(choices=NUMERACAO_CHOICES, null=False, blank=False, unique=True)
+            Calcado, on_delete = models.CASCADE, verbose_name = 'calcado', related_name = 'estoque')
+    tamanho    = models.IntegerField(choices=NUMERACAO_CHOICES, null=False, blank=False)
     quantidade = models.IntegerField(null=False, default=0)
 
     def __str__(self):
@@ -62,6 +66,6 @@ class Numeracao(models.Model):
         return self.id_calcado.descricao
 
     class Meta:
-        verbose_name = 'Numeração'
-        verbose_name_plural = 'Numerações'
+        verbose_name = 'Estoque'
+        verbose_name_plural = 'Estoque'
         ordering = ['-quantidade']

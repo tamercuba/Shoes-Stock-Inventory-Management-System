@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Calcado, Numeracao
-from .serializers import CalcadoSerializer, NumeracaoSerializer
+from .models import Calcado
+from .serializers import CalcadoSerializer
 from .filters import CalcadoFilter
 
 class CalcadoViewSet(viewsets.ModelViewSet):

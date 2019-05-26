@@ -68,4 +68,8 @@ class Estoque(models.Model):
     class Meta:
         verbose_name = 'Estoque'
         verbose_name_plural = 'Estoque'
+        unique_together = ('id_calcado', 'tamanho')
+        constraints = [
+            models.CheckConstraint(check=models.Q(quantidade__gte=0), name='quantidade_gte_18'),
+        ]
         ordering = ['-quantidade']

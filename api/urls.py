@@ -7,5 +7,5 @@ app_name = 'api'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('', include(router.urls)),
+    path('', include(router.urls))
 ]

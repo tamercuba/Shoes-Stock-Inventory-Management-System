@@ -1,9 +1,11 @@
 from rest_framework import viewsets
-from .models import Calcado
+from .models import Calcado, Estoque
 from .serializers import CalcadoSerializer, EstoqueSerializer, EstoquePostSerializer
 from .filters import CalcadoFilter
 from rest_framework.response import Response
 from rest_framework import status
+
+from rest_framework.decorators import action
 
 class CalcadoViewSet(viewsets.ModelViewSet):
     '''
@@ -29,18 +31,23 @@ class CalcadoViewSet(viewsets.ModelViewSet):
     '''
 
     queryset = Calcado.objects.all()
-    serializer_class = CalcadoSerializer
     filter_class = CalcadoFilter
+
+    def get_serializer_class(self):
+        if self.action == 'custom_create':
+            return EstoquePostSerializer
+        else:
+            return CalcadoSerializer
 
     def custom_create(self, request, *args, **kwargs):
         data = {}
 
+        data['id_calcado'] = kwargs['pk']
         data['tamanho'] = request.data.get('tamanho')
         data['quantidade'] = request.data.get('quantidade')
-        data['id_calcado'] = kwargs['pk']
 
-        custom_serializer = EstoquePostSerializer(data=data)
-        custom_serializer.is_valid(raise_exception=True)
-        self.perform_create(custom_serializer)
-        headers = self.get_success_headers(custom_serializer.data)
-        return Response(custom_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        serializer = self.get_serializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

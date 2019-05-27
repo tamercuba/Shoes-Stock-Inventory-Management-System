@@ -7,6 +7,12 @@ class EstoqueSerializer(serializers.ModelSerializer):
         model = Estoque
         fields = ['tamanho', 'quantidade']
 
+class EstoquePostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Estoque
+        fields = ['id_calcado','tamanho', 'quantidade']
+
 class CalcadoSerializer(serializers.ModelSerializer):
     '''
     CALÇADO SERIALIZER
@@ -15,11 +21,7 @@ class CalcadoSerializer(serializers.ModelSerializer):
     modelo Django para dados tipo Python nativo,
     para depois serem convertidos em formato JSON.
     '''
-
     estoque = EstoqueSerializer(many=True, read_only=True)
-    #numeracao = NumeracaoSerializer(many=True, queryset=Numeracao.objects.all())
-    #numeracao = serializers.ReadOnlyField()
-    #numeracao = serializers.RelatedField(many=True, read_only=True)
 
     class Meta:
         model = Calcado

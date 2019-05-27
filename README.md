@@ -16,6 +16,7 @@ Método HTTP | URL | Comportamento
 `GET` | `/resources/` | Retorna lista paginada de calçados permitindo busca
 `POST`| `/resources/` | Adiciona um novo calçado
 `GET` | `/resources/id` | Retorna um calçado existente
+`POST`| `/resources/id` | Adiciona calçado no estoque (tamanho/numeração)
 `PUT` | `/resources/id` | Altera as informações de um calçado existente
 `PATCH` | `/resources/id` | Altera parcialmente as informações de um calçado existente
 `DELETE` | `/resources/id` | Remove um calçado existente

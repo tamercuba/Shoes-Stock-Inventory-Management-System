@@ -1,6 +1,8 @@
 from .models import Calcado, Estoque
 from django.shortcuts      import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from rest_framework.decorators import api_view
+
 
 def index(request):
     template_name = 'index.html'

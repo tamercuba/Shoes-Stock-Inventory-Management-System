@@ -1,4 +1,5 @@
 # Shoe Stock Inventory Management System
+[![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html)
 
 > Uma aplicação de controle de estoque de calçados construida sob arquitetura REST.
 
@@ -45,7 +46,6 @@ Django | 2.2.1
 djangorestframework | 3.9.4  
 pip | 19.1.1
 psycopg2 | 2.8.2  
-Python | 3.7.1
 python-decouple | 3.1    
 pytz | 2019.1
 setuptools | 41.0.1

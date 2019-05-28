@@ -17,6 +17,9 @@ class CalcadoViewSet(viewsets.ModelViewSet):
     create:
     Adiciona um novo calçado (Verbo CREATE)
 
+    custom_create:
+    Adiciona uma instancia ao estoque (Verbo CREATE)
+
     list:
     Retorna uma lista de todos os calçados (Verbo GET)
 
@@ -28,6 +31,9 @@ class CalcadoViewSet(viewsets.ModelViewSet):
 
     update:
     Atualiza os dados de uma instância de calçado (Verbo UPDATE)
+
+    destroy:
+    Deleta os dados de uma instância de calçado (Verbo DELETE)
     '''
 
     queryset = Calcado.objects.all()
@@ -50,4 +56,8 @@ class CalcadoViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+        calcado_serializer = CalcadoSerializer(instance=self.get_object())
+        #calcado_serializer = CalcadoSerializer(data=instance)
+        # response_serializer.is_valid()
+        return Response(calcado_serializer.data, status=status.HTTP_201_CREATED, headers=headers)

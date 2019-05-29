@@ -14,17 +14,16 @@ A aplicação retorna valores JSON a partir dos seguintes endpoints:
 
 Método HTTP | URL | Comportamento
 ------------|-----|---------------
-`GET` | `/resources/` | Retorna lista paginada de calçados permitindo busca
-`POST`| `/resources/` | Adiciona um novo calçado
-`GET` | `/resources/id` | Retorna um calçado existente
-`POST`| `/resources/id` | Adiciona calçado no estoque (tamanho/numeração)
-`PUT` | `/resources/id` | Altera as informações de um calçado existente
-`PATCH` | `/resources/id` | Altera parcialmente as informações de um calçado existente
-`DELETE` | `/resources/id` | Remove um calçado existente
+`GET` | `resources/` | Retorna lista paginada de calçados permitindo busca
+`POST`| `resources/` | Adiciona um novo calçado
+`GET` | `resources/id` | Retorna um calçado existente
+`PUT` | `resources/id` | Altera as informações de um calçado existente
+`PATCH` | `resources/id` | Altera parcialmente as informações de um calçado existente
+`DELETE` | `resources/id` | Remove um calçado existente
 
 #### Busca
 
-Para realizar a busca pelo endpoint `/resources/` você deve adicionar um parâmetro `?campo1=valor1&campo2=valor2...`, podendo buscar por um ou mais campos.
+Para realizar a busca pelo endpoint `resources/` você deve adicionar um parâmetro `?campo1=valor1&campo2=valor2...`, podendo buscar por um ou mais campos.
 
 Os campos disponíveis para busca são:
 * `?descricao`: busca pela descrição exata do calçado.
@@ -37,6 +36,106 @@ Os campos disponíveis para busca são:
 > Os campos de busca tipo numéricos podem ser refinados usando os parametros `__lt`/`__gt` para 'menor/maior que' e também `__lte/__gte` para 'menor/maior ou igual a'.
 
 Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos calçados que tem quantidade em estoque menor ou igual a `500` e preço de venda maior que `R$150,00`.
+
+### Exemplos de utilização
+
+* Ao requisitar `GET` na endpoint `resources/` você deverá receber algo parecido com isso:
+```
+{
+    "count": 13,
+    "next": "http://localhost:8000/resources/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "_id": 5,
+            "descricao": "Adidas Classic",
+            "fornecedor": "ADIDAS",
+            "tipo": "CS",
+            "preco_custo": "101.00",
+            "preco_venda": "300.00",
+            "quantidade_total": 100,
+            "estoque": [
+                {
+                    "tamanho": 37,
+                    "quantidade": 3701
+                },
+                {
+                    "tamanho": 36,
+                    "quantidade": 3601
+                },
+            ]
+        },
+        {
+            "_id": 9,
+            "descricao": "Air Max Branco",
+            "fornecedor": "NIKE",
+            "tipo": "CS",
+            "preco_custo": "200.00",
+            "preco_venda": "550.00",
+            "quantidade_total": 5070,
+            "estoque": [
+                {
+                    "tamanho": 41,
+                    "quantidade": 5000
+                },
+                {
+                    "tamanho": 36,
+                    "quantidade": 70
+                }
+            ]
+        }
+}
+```
+
+Para requisitar `POST` nessa mesma endpoint você deve enviar um JSON no formato acima, porém sempre com `"estoque": []`
+> Para adicionar uma nova numeração ao estoque ou alterar a quantidade de determinado tamanho deve-se usar o verbo POST,
+será explciado mais abaixo.
+
+Ao requisitar `GET` na endpoint `resources/6` você deve receber algo semelhante a isso:
+```
+{
+    "_id": 6,
+    "descricao": "Havaianas Branco e Azul",
+    "fornecedor": "Havaianas",
+    "tipo": "CH",
+    "preco_custo": "10.00",
+    "preco_venda": "50.00",
+    "quantidade_total": 990,
+    "estoque": [
+        {
+            "tamanho": 38,
+            "quantidade": 900
+        },
+        {
+            "tamanho": 43,
+            "quantidade": 90
+        }
+
+```
+Para utilizar o verbo `PUT` você deve retornar o mesmo JSON acima com as alterações desejadas.
+
+Para requisitar `PATCH` você deve enviar um JSON no seguinte formato:
+```
+{
+    "descricao": Havaianas Tradicional Branco e Azul
+}
+```
+Se quiser adicionar um novo tamanho ou alterar a quantidade em estoque basta enviar um JSON no seguinte formato
+(ainda no verbo PATCH):
+```
+{
+    "estoque": [
+        {
+            "tamanho": 39,                  # <- ADICIONA NOVA INSTANCIA
+            "quantidade": 1000,
+        },
+        {
+            "tamanho": 38,                  # <- ALTERA QUANTIDADE
+            "quantidade": 899
+        }
+    ]
+}
+```
 
 ## Depêndencias
 

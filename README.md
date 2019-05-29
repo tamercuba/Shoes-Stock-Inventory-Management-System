@@ -18,8 +18,8 @@ Método HTTP | URL | Comportamento
 `POST`| `resources/` | Adiciona um novo calçado
 `GET` | `resources/id` | Retorna um calçado existente
 `PUT` | `resources/id` | Altera as informações de um calçado existente
-`PATCH` | `resources/id` | Altera parcialmente as informações de um calçado existente
-`DELETE` | `resources/id` | Remove um calçado existente
+`PATCH` | `resources/id/` | Altera parcialmente as informações de um calçado existente
+`DELETE` | `resources/id/` | Remove um calçado existente
 
 #### Busca
 
@@ -87,12 +87,10 @@ Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos cal
 }
 ```
 
-Para requisitar `POST` nessa mesma endpoint você deve enviar um JSON no formato acima, porém sempre com `"estoque": []` e sem o campo `"_id"` é claro.
+Para requisitar `POST` nessa mesma endpoint você deve enviar um JSON no formato acima, omitindo apenas os capos `'_id'`, `"quantidade_total"`.
 
-> Para adicionar uma nova numeração ao estoque ou alterar a quantidade de determinado tamanho deve-se usar o verbo POST,
-será explciado mais abaixo.
 
-Ao requisitar `GET` na endpoint `resources/6` você deve receber algo semelhante a isso:
+Ao requisitar `GET` na endpoint `resources/6/` você deve receber algo semelhante a isso:
 ```
 {
     "_id": 6,
@@ -124,6 +122,9 @@ Para requisitar `PATCH` você deve enviar um JSON no seguinte formato:
 ```
 Se quiser adicionar um novo tamanho ou alterar a quantidade em estoque basta enviar um JSON no seguinte formato
 (ainda no verbo PATCH):
+
+> Para deletar uma instancia de estoque basta atualizar a quantidade daquela numeração para 0
+
 ```
 {
     "estoque": [

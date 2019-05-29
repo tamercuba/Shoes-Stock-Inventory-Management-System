@@ -41,9 +41,9 @@ class CalcadoSerializer(serializers.ModelSerializer):
         estoque_data = validated_data.get('estoque', [])
 
         for item_data in estoque_data:
-            item_id = item_data.get('tamanho', None)
-            if item_id is not None:
-                item_db            = estoque.get(tamanho=item_id)
+            item_tamanho = item_data.get('tamanho', None)
+            if estoque.filter(tamanho=item_tamanho):
+                item_db            = estoque.get(tamanho=item_tamanho)
                 item_db.tamanho    = item_data.get('tamanho', item_db.tamanho)
                 item_db.quantidade = item_data.get('quantidade',item_db.quantidade)
                 if item_db.quantidade == 0:

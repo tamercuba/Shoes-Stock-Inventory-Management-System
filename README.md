@@ -1,6 +1,5 @@
 # Shoe Stock Inventory Management System
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://github.com/tamercuba/Shoes-Stock-Inventory-Management-System/tree/v0.1)
-
 [![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html)
 > Uma aplicação de controle de estoque de calçados construida sob arquitetura REST.
 

@@ -37,7 +37,7 @@ Os campos disponíveis para busca são:
 
 Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos calçados que tem quantidade em estoque menor ou igual a `500` e preço de venda maior que `R$150,00`.
 
-### Exemplos de utilização
+#### Exemplos de utilização
 
 * Ao requisitar `GET` na endpoint `resources/` você deverá receber algo parecido com isso:
 ```
@@ -87,7 +87,8 @@ Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos cal
 }
 ```
 
-Para requisitar `POST` nessa mesma endpoint você deve enviar um JSON no formato acima, porém sempre com `"estoque": []`
+Para requisitar `POST` nessa mesma endpoint você deve enviar um JSON no formato acima, porém sempre com `"estoque": []` e sem o campo `"_id"` é claro.
+
 > Para adicionar uma nova numeração ao estoque ou alterar a quantidade de determinado tamanho deve-se usar o verbo POST,
 será explciado mais abaixo.
 
@@ -110,6 +111,7 @@ Ao requisitar `GET` na endpoint `resources/6` você deve receber algo semelhante
             "tamanho": 43,
             "quantidade": 90
         }
+}
 
 ```
 Para utilizar o verbo `PUT` você deve retornar o mesmo JSON acima com as alterações desejadas.

@@ -18,6 +18,14 @@ class CalcadoSerializer(serializers.ModelSerializer):
     '''
     estoque = EstoqueSerializer(many=True)
 
+    def create(self, validated_data):
+        estoque_data = validated_data.pop('estoque')
+        calcado      = Calcado.objects.create(**validated_data)
+        for data in estoque_data:
+            calcado.estoque.create(**data)
+        return calcado
+
+
     def update(self, instance, validated_data):
         instance.descricao   = validated_data.get(
             'descricao', instance.descricao)

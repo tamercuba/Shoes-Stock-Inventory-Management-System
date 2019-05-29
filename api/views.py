@@ -11,7 +11,7 @@ def index(request):
     calcados      = []
 
     for instancia in calcado_query:
-        temp = {}
+        temp               = {}
         temp['descricao']  = instancia.descricao
         temp['fornecedor'] = instancia.fornecedor
         temp['tipo']       = instancia.tipo
@@ -32,7 +32,7 @@ def index(request):
         content = paginator.page(1)
     except EmptyPage:
         content.paginator.page(paginator.num_pages)
-    context   = {
+    context     = {
         'calcados': content,
     }
     return render(request, template_name, context)

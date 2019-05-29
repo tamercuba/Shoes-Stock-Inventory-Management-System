@@ -46,7 +46,10 @@ class CalcadoSerializer(serializers.ModelSerializer):
                 item_db            = estoque.get(tamanho=item_id)
                 item_db.tamanho    = item_data.get('tamanho', item_db.tamanho)
                 item_db.quantidade = item_data.get('quantidade',item_db.quantidade)
-                item_db.save()
+                if item_db.quantidade == 0:
+                    item_db.delete()
+                else:
+                    item_db.save()
             else:
                 Estoque.objects.create(
                     id_calcado = instance,

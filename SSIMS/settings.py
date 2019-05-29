@@ -31,6 +31,7 @@ DEFAULT_APPS = [
 USER_APPS = [
     'rest_framework',
     'api',
+    'frontend',
     'django_filters',
 ]
 

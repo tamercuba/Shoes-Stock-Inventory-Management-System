@@ -1,5 +1,5 @@
 # Shoe Stock Inventory Management System
-[![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html) [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 > Uma aplicação de controle de estoque de calçados construida sob arquitetura REST.
 

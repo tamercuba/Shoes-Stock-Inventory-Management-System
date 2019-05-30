@@ -1,5 +1,5 @@
 # Shoe Stock Inventory Management System
-[![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html)
+[![Generic badge](https://img.shields.io/badge/Python-3.7.3-Blue.svg)](https://docs.python.org/3/index.html) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 > Uma aplicação de controle de estoque de calçados construida sob arquitetura REST.
 
@@ -7,6 +7,7 @@
 
 Escrito em Python + Django e utilizando o Django Rest Framework para a implementação da arquitetura REST, o SSIMS visa fornecer uma CRUD para gerenciar um sistema de estoque de calçados.
 
+![Frontend](https://i.imgur.com/QKiFHfe.png)
 
 ## Features
 
@@ -14,6 +15,8 @@ A aplicação retorna valores JSON a partir dos seguintes endpoints:
 
 Método HTTP | URL | Comportamento
 ------------|-----|---------------
+`GET`| `'index'` | Frontend simples que lista os calçados
+`POST`| `resources/csv_import/` | Recebe um arquivo `csv` com informações sobre os calçados e realiza a inserção
 `GET` | `resources/` | Retorna lista paginada de calçados permitindo busca
 `POST`| `resources/` | Adiciona um novo calçado
 `GET` | `resources/id` | Retorna um calçado existente
@@ -39,7 +42,7 @@ Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos cal
 
 #### Exemplos de utilização
 
-* Ao requisitar `GET` na endpoint `resources/` você deverá receber algo parecido com isso:
+Ao requisitar `GET` na endpoint `resources/` você deverá receber algo parecido com isso:
 ```
 {
     "count": 13,
@@ -139,6 +142,12 @@ Se quiser adicionar um novo tamanho ou alterar a quantidade em estoque basta env
     ]
 }
 ```
+###### Endpoint csv_import/
+
+No diretório `static/TEMP` você encontrará um aquivo chamado `data_example.csv`. Nele você encontrará um `csv` com as seguintes colunas: `descricao,fornecedor,tipo,preco_custo,preco_venda,total,35,36,37,38,39,40,41,42,43,44,45`. As colunas numeradas recebem um valor de `0` a `1` indicando a porcentagem daquela numeração em estoque. O arquivo deve, necessáriamente ser renomeado para `data.csv` antes do envio.
+
+Para enviar o arquivo execute o seguinte comando: `curl -F @file=path/to/data.csv localhost:8000/resources/csv_import/`.
+
 
 ## Depêndencias
 

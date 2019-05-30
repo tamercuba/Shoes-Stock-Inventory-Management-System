@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Calcado, Estoque
+from .models import Calcado, Estoque, File
 
 class CalcadoAdmin(admin.ModelAdmin):
     '''

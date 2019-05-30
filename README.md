@@ -186,7 +186,8 @@ PORT_DB= "PORTA"
 
 ## Versões
 
-* v0.2 - ATUAL
+* MASTER - ATUAL
+* [v0.2](https://github.com/tamercuba/Shoes-Stock-Inventory-Management-System/tree/v0.2)
 * [v0.1](https://github.com/tamercuba/Shoes-Stock-Inventory-Management-System/tree/v0.1)
 
 ## Contato

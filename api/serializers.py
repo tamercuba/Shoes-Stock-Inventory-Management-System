@@ -1,9 +1,12 @@
 from rest_framework import serializers
-from .models import Calcado, Estoque
+from .models import Calcado, Estoque, File
 
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = File 
+        fields = ['file']
 
 class EstoqueSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Estoque
         fields = ['tamanho', 'quantidade']

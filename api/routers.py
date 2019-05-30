@@ -1,4 +1,3 @@
-# from rest_framework import routers
 from .viewsets import CalcadoViewSet
 from rest_framework.routers import DefaultRouter
 

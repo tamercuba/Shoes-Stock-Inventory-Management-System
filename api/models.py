@@ -1,5 +1,10 @@
 from django.db import models
 
+class File(models.Model):
+    file = models.FileField(upload_to='static/TEMP/',blank=False, null=False)
+    def __str__(self):
+        return self.file.name
+
 class Calcado(models.Model):
     '''
     MODELO CALÇADO
@@ -22,7 +27,7 @@ class Calcado(models.Model):
     ]
 
     _id         = models.AutoField(primary_key=True)
-    descricao   = models.CharField(max_length=100, null=False, blank=False)
+    descricao   = models.CharField(max_length=100, null=False, blank=False, unique=True)
     fornecedor  = models.CharField(max_length=100, null=False, blank=False)
     tipo        = models.CharField(max_length=2, choices=TIPO_CHOICES, null=False, blank=False)
     preco_custo = models.DecimalField(
@@ -70,6 +75,6 @@ class Estoque(models.Model):
         verbose_name_plural = 'Estoque'
         unique_together     = ('id_calcado', 'tamanho')
         constraints         = [
-            models.CheckConstraint(check=models.Q(quantidade__gte=0), name='quantidade_gte_18'),
+            models.CheckConstraint(check=models.Q(quantidade__gte=0), name='quantidade_gte_0'),
         ]
         ordering            = ['-quantidade']

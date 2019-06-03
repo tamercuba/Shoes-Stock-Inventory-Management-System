@@ -168,7 +168,7 @@ Exemplo: `/resources/?quantidade__lte=500&preco_venda__gt=150` retorna todos cal
 
 No diretório `static/TEMP` você encontrará um aquivo chamado `data_example.csv`. Nele você encontrará um `csv` com as seguintes colunas: `descricao,fornecedor,tipo,preco_custo,preco_venda,total,35,36,37,38,39,40,41,42,43,44,45`. As colunas numeradas recebem um valor de `0` a `1` indicando a porcentagem daquela numeração em estoque. O arquivo deve, necessáriamente ser renomeado para `data.csv` antes do envio.
 
-Todas endpoints foram testadas utilizando o `Postman` para as requisições.
+Para enviar o arquivo `.csv` basta executar `curl -F file=@data.csv localhost:8000/resources/csv_import/`.
 
 
 ## Depêndencias
